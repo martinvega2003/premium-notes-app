@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "main": "main.ts",
   "scripts": {
+    "migrate": "prisma migrate dev --name init",
+    "migrate:deploy": "prisma migrate deploy",
+    "migrate:reset": "prisma migrate reset --force",
     "generate": "prisma generate",
-    "build": "npm run generate && tsc",
+    "build": "npm run migrate && generate && tsc",
     "start": "node dist/main.js"
   },
   "keywords": [],
